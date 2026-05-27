@@ -647,8 +647,8 @@ p  { line-height:1.75; color:var(--text-light); }
 .float-btn i { font-size:1.15rem; }
 .float-wa   { background:#25D366; }
 .float-wa:hover { background:#1fba5a; }
-.float-call { background:#128C7E; }
-.float-call:hover { background:#0e7468; }
+.float-call { background:#C41230; }
+.float-call:hover { background:#8B0D22; }
 @media(max-width:768px){
   .float-btns{ bottom:88px; right:14px; }
   .float-btn { padding:11px 16px; font-size:.8rem; gap:8px; }
