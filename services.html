@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Srivari Constructions Services &#8211; Building Construction, Architectural Design, Interior Design and Elevation Design in Trichy, Tamil Nadu.">
+  <title>Services | Srivari Constructions</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── Services intro heading ── */
+    .srv-heading-bar{padding:70px 0 50px;background:var(--white)}
+    .srv-heading-bar .section-tag{margin-bottom:12px}
+    .srv-heading-bar h2{max-width:700px;margin:0 auto 16px}
+    .srv-heading-bar p{max-width:620px;margin:0 auto}
+
+    /* ── 2×2 card grid ── */
+    .srv-cards-section{padding:0 0 90px;background:var(--white)}
+    .srv-card-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;
+    }
+    .srv-photo-card{
+      position:relative;overflow:hidden;border-radius:var(--radius);
+      aspect-ratio:1/1;cursor:pointer;
+    }
+    .srv-photo-card .srv-bg{
+      position:absolute;inset:0;width:100%;height:100%;
+      background-size:cover;background-position:center;
+      transition:transform .6s ease;
+    }
+    .srv-photo-card:hover .srv-bg{transform:scale(1.07)}
+    /* dark overlay for readability */
+    .srv-photo-card::before{
+      content:'';position:absolute;inset:0;z-index:1;
+      background:linear-gradient(to bottom,rgba(0,0,0,.15) 30%,rgba(0,0,0,.55) 100%);
+    }
+    /* red diagonal corner */
+    .srv-photo-card .srv-corner{
+      position:absolute;bottom:0;left:0;z-index:2;
+      width:55%;height:42%;
+      background:var(--primary);
+      clip-path:polygon(0 100%,0 0,100% 100%);
+      transition:width .4s ease,height .4s ease;
+    }
+    .srv-photo-card:hover .srv-corner{width:60%;height:46%}
+    /* label */
+    .srv-photo-card .srv-label{
+      position:absolute;bottom:22px;left:22px;z-index:3;
+      color:var(--white);font-family:var(--font-h);
+      font-size:clamp(1rem,2vw,1.3rem);font-weight:900;
+      text-transform:uppercase;line-height:1.15;
+      text-shadow:0 2px 8px rgba(0,0,0,.4);
+    }
+    /* icon badge top-right */
+    .srv-photo-card .srv-icon-badge{
+      position:absolute;top:18px;right:18px;z-index:3;
+      width:46px;height:46px;border-radius:50%;
+      background:rgba(255,255,255,.15);backdrop-filter:blur(6px);
+      border:1.5px solid rgba(255,255,255,.3);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--white);font-size:1.1rem;
+      transition:background .3s;
+    }
+    .srv-photo-card:hover .srv-icon-badge{background:var(--primary);border-color:var(--primary)}
+
+    /* card bg gradients */
+    .sg-build{background:linear-gradient(135deg,#0d1a2e 0%,#1a3a5c 50%,#2a5a8a 100%)}
+    .sg-arch {background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 50%,#3d3d3d 100%)}
+    .sg-int  {background:linear-gradient(135deg,#1a1200 0%,#4a3800 50%,#7a6010 100%)}
+    .sg-elev {background:linear-gradient(135deg,#0d2a1a 0%,#1a4a2e 50%,#2a6640 100%)}
+
+    /* ── Detail cards below ── */
+    .srv-detail-section{padding:90px 0;background:var(--light)}
+    .srv-detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .srv-detail-card{
+      background:var(--white);border-radius:var(--radius-lg);
+      padding:36px 28px;border:1px solid var(--border);
+      transition:var(--tr);text-align:center;
+    }
+    .srv-detail-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-5px);border-color:var(--primary)}
+    .srv-detail-icon{
+      width:72px;height:72px;border-radius:50%;
+      background:rgba(196,18,48,.08);margin:0 auto 22px;
+      display:flex;align-items:center;justify-content:center;
+      transition:background .3s;
+    }
+    .srv-detail-icon i{font-size:1.6rem;color:var(--primary)}
+    .srv-detail-card:hover .srv-detail-icon{background:var(--primary)}
+    .srv-detail-card:hover .srv-detail-icon i{color:var(--white)}
+    .srv-detail-card h4{font-size:1.05rem;margin-bottom:12px;color:var(--dark)}
+    .srv-detail-card p{font-size:.85rem;color:var(--text-light);line-height:1.7;margin-bottom:18px}
+    .srv-detail-card ul{text-align:left;list-style:none;padding:0;margin-bottom:22px}
+    .srv-detail-card ul li{font-size:.82rem;color:var(--text);padding:5px 0;border-bottom:1px dashed var(--border);display:flex;align-items:flex-start;gap:8px}
+    .srv-detail-card ul li::before{content:'\f058';font-family:"Font Awesome 6 Free";font-weight:900;color:var(--primary);font-size:.72rem;margin-top:3px;flex-shrink:0}
+
+    /* ── Process section ── */
+    .process-section{padding:90px 0;background:var(--white)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+    .process-grid::before{
+      content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;
+      background:repeating-linear-gradient(90deg,var(--primary) 0,var(--primary) 10px,transparent 10px,transparent 20px);
+      z-index:0;
+    }
+    .proc-card{text-align:center;padding:30px 20px;position:relative;z-index:1}
+    .proc-num{
+      width:80px;height:80px;border-radius:50%;
+      background:var(--primary);color:var(--white);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-h);font-size:1.6rem;font-weight:900;
+      margin:0 auto 24px;box-shadow:0 4px 20px rgba(196,18,48,.4);position:relative;
+    }
+    .proc-num::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px dashed rgba(196,18,48,.3)}
+    .proc-card h4{font-size:1rem;color:var(--dark);margin-bottom:10px}
+    .proc-card p{font-size:.84rem;color:var(--text-light);line-height:1.68}
+
+    @media(max-width:1024px){.srv-detail-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){
+      .srv-card-grid{grid-template-columns:1fr}
+      .srv-photo-card{aspect-ratio:4/3}
+      .srv-detail-grid{grid-template-columns:1fr 1fr}
+      .process-grid{grid-template-columns:repeat(2,1fr)}
+      .process-grid::before{display:none}
+    }
+    @media(max-width:480px){
+      .srv-detail-grid{grid-template-columns:1fr}
+      .process-grid{grid-template-columns:1fr}
+      .srv-photo-card{aspect-ratio:3/2}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-inner" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="Srivari Constructions" class="nav-logo">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nav-link">Home</a></li>
+      <li><a href="about.html"      class="nav-link">About Us</a></li>
+      <li><a href="services.html"   class="nav-link active">Services</a></li>
+      <li><a href="projects.html"   class="nav-link">Projects</a></li>
+      <li><a href="equipments.html" class="nav-link">Equipments</a></li>
+      <li><a href="contact.html"    class="nav-link btn-nav">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <h1>Our Services</h1>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span class="cur">Services</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+
+<!-- DETAIL CARDS -->
+<section class="srv-detail-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Service Details</div>
+      <h2 class="section-title">What We <span>Deliver</span></h2>
+      <span class="divider"></span>
+    </div>
+    <div class="srv-detail-grid">
+
+      <div class="srv-detail-card reveal d1">
+        <div class="srv-detail-icon"><i class="fas fa-hard-hat"></i></div>
+        <h4>Building Construction</h4>
+        <p>End-to-end construction of residential, commercial, and institutional buildings with superior quality and timely delivery.</p>
+        <ul>
+          <li>Residential homes &amp; villas</li>
+          <li>Commercial &amp; office buildings</li>
+          <li>Institutional &amp; industrial structures</li>
+          <li>Government &amp; infrastructure works</li>
+          <li>Foundation to finishing &#8211; complete package</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:.84rem;padding:11px 24px;width:100%;justify-content:center"><i class="fas fa-phone-alt"></i> Enquire Now</a>
+      </div>
+
+      <div class="srv-detail-card reveal d2">
+        <div class="srv-detail-icon"><i class="fas fa-drafting-compass"></i></div>
+        <h4>Architectural Design</h4>
+        <p>Creative, functional, and Vastu-compliant architectural designs that bring your vision to life with precision engineering.</p>
+        <ul>
+          <li>Concept design &amp; 3D visualization</li>
+          <li>Detailed architectural drawings</li>
+          <li>Structural design &amp; engineering</li>
+          <li>Vastu-compliant layouts</li>
+          <li>Permit drawings &amp; approvals</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:.84rem;padding:11px 24px;width:100%;justify-content:center"><i class="fas fa-phone-alt"></i> Enquire Now</a>
+      </div>
+
+      <div class="srv-detail-card reveal d3">
+        <div class="srv-detail-icon"><i class="fas fa-couch"></i></div>
+        <h4>Interior Design</h4>
+        <p>Transform your space into an inspiring environment with our creative interior design and execution expertise.</p>
+        <ul>
+          <li>Modular kitchen &amp; wardrobe systems</li>
+          <li>False ceiling &amp; flooring works</li>
+          <li>Lighting design &amp; electrical fitouts</li>
+          <li>Commercial interior fit-outs</li>
+          <li>Furniture design &amp; installation</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:.84rem;padding:11px 24px;width:100%;justify-content:center"><i class="fas fa-phone-alt"></i> Enquire Now</a>
+      </div>
+
+      <div class="srv-detail-card reveal d4">
+        <div class="srv-detail-icon"><i class="fas fa-building"></i></div>
+        <h4>Elevation Design</h4>
+        <p>Modern, distinctive building elevations that enhance curb appeal and create a lasting impression for your property.</p>
+        <ul>
+          <li>Modern &amp; contemporary facades</li>
+          <li>Cladding &amp; external finishes</li>
+          <li>Compound walls &amp; gate design</li>
+          <li>Facade renovation &amp; upgrades</li>
+          <li>3D elevation rendering &amp; approvals</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:.84rem;padding:11px 24px;width:100%;justify-content:center"><i class="fas fa-phone-alt"></i> Enquire Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">How We Work</div>
+      <h2 class="section-title">Our <span>Work Process</span></h2>
+      <p class="section-subtitle">A structured approach that ensures quality delivery at every stage.</p>
+      <span class="divider"></span>
+    </div>
+    <div class="process-grid">
+      <div class="proc-card reveal d1">
+        <div class="proc-num">01</div>
+        <h4>Consultation &amp; Brief</h4>
+        <p>We begin with a detailed discussion to understand your requirements, preferences, budget, and timeline.</p>
+      </div>
+      <div class="proc-card reveal d2">
+        <div class="proc-num">02</div>
+        <h4>Design &amp; Planning</h4>
+        <p>Our architects and engineers prepare detailed drawings, structural plans, and cost estimates for your approval.</p>
+      </div>
+      <div class="proc-card reveal d3">
+        <div class="proc-num">03</div>
+        <h4>Construction Phase</h4>
+        <p>Expert teams execute the project with strict quality controls, regular inspections, and transparent progress updates.</p>
+      </div>
+      <div class="proc-card reveal d4">
+        <div class="proc-num">04</div>
+        <h4>Handover &amp; Support</h4>
+        <p>Final walkthrough, quality sign-off, documentation, and ongoing support to ensure your complete satisfaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Have a Project in Mind?</h2>
+    <p>Get in touch for a free consultation. Our team is ready to discuss your requirements.</p>
+    <div class="cta-btns">
+      <a href="contact.html"  class="btn btn-outline-white"><i class="fas fa-phone-alt"></i> Call Us Today</a>
+      <a href="projects.html" class="btn" style="background:var(--white);color:var(--primary);font-weight:700"><i class="fas fa-folder-open"></i> Our Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/logo.png" alt="Srivari Constructions" class="footer-logo">
+          <p class="footer-about-text">Building dreams with precision and excellence since 1990. Trichy&#8217;s trusted construction partner for residential, commercial, and infrastructure projects.</p>
+          <div class="socials">
+            <a href="#" class="s-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="s-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="s-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="s-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="flinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="equipments.html">Equipments</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="flinks">
+            <li><a href="services.html">Building Construction</a></li>
+            <li><a href="services.html">Architectural Design</a></li>
+            <li><a href="services.html">Interior Design</a></li>
+            <li><a href="services.html">Elevation Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div>
+            <div class="fc-item"><i class="fas fa-map-marker-alt"></i><span>No. 163, Dhandapani Apartments, Ponnagar, 9th Cross, Trichy &#8211; 620 001</span></div>
+            <div class="fc-item"><i class="fas fa-phone-alt"></i><span><a href="tel:+919003080565">+91 90030 80565</a></span></div>
+            <div class="fc-item"><i class="fas fa-envelope"></i><span><a href="mailto:srivariconstructions75@gmail.com">srivariconstructions75@gmail.com</a></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2024 Srivari Constructions. All Rights Reserved.</p>
+        <p>Designed with <span style="color:var(--primary)">&#9829;</span> for <a href="#">Srivari Constructions</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>

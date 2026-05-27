@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Srivari Constructions – Premium construction services in Trichy. Residential, Commercial, Civil Engineering and Project Management.">
+  <title>Srivari Constructions | Building Excellence Since 2009</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ─ Home-specific extras ─ */
+    .about-strip{padding:90px 0;background:var(--white)}
+    .as-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .as-img{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3}
+    .as-img-inner{width:100%;height:100%;}
+    .as-img-inner img{width:100%;height:100%;object-fit:cover;display:block;}
+    .as-badge{
+      position:absolute;bottom:-18px;right:-18px;
+      background:var(--primary);color:var(--white);
+      padding:24px 20px;border-radius:var(--radius);text-align:center;
+      box-shadow:var(--shadow-lg);
+    }
+    .as-badge .n{font-family:var(--font-h);font-size:2.8rem;font-weight:900;line-height:1}
+    .as-badge .t{font-size:.76rem;opacity:.85}
+    .as-text .section-tag{margin-bottom:14px}
+    .as-text h2{margin-bottom:18px}
+    .as-text p{margin-bottom:14px}
+    .as-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 32px}
+    .as-feat{display:flex;align-items:center;gap:9px;font-size:.87rem;font-weight:500;color:var(--text)}
+    .as-feat i{color:var(--primary)}
+
+    /* project bg placeholders */
+    .pb1{background:linear-gradient(135deg,#1a1a1a 0%,#2c3e50 100%)}
+    .pb2{background:linear-gradient(135deg,#1a2744 0%,#2d4a8b 100%)}
+    .pb3{background:linear-gradient(135deg,#2d1b00 0%,#7a4f1a 100%)}
+    .pb4{background:linear-gradient(135deg,#0a2a1a 0%,#1a5c35 100%)}
+    .pb5{background:linear-gradient(135deg,#1a0a2e 0%,#5c1a7a 100%)}
+    .pb6{background:linear-gradient(135deg,#1a1a1a 0%,#3d3d3d 100%)}
+
+    /* service bg */
+    .sb1{background:linear-gradient(135deg,#8B0D22,#C41230)}
+    .sb2{background:linear-gradient(135deg,#0d2244,#1a3d8b)}
+    .sb3{background:linear-gradient(135deg,#1a0d2e,#5c1a7a)}
+
+    @media(max-width:1024px){.as-grid{grid-template-columns:1fr;gap:40px}.as-img{max-width:460px;margin:0 auto}}
+    @media(max-width:768px){.as-feats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="Srivari Constructions" class="nav-logo">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nav-link active">Home</a></li>
+      <li><a href="about.html"      class="nav-link">About Us</a></li>
+      <li><a href="services.html"   class="nav-link">Services</a></li>
+      <li><a href="projects.html"   class="nav-link">Projects</a></li>
+      <li><a href="equipments.html" class="nav-link">Equipments</a></li>
+      <li><a href="contact.html"    class="nav-link btn-nav">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag"><span class="dot"></span>Trichy's Premier Construction Partner</div>
+      <h1 class="hero-title">
+        Building Your <span class="hl">Dreams</span> With Precision &amp; Excellence
+      </h1>
+      <p class="hero-sub">
+        From residential homes to commercial complexes — Srivari Constructions delivers quality-crafted structures with over 15 years of trusted expertise in Tamil Nadu.
+      </p>
+      <div class="hero-btns">
+        <a href="projects.html" class="btn btn-primary"><i class="fas fa-building"></i> View Our Projects</a>
+        <a href="contact.html"  class="btn btn-outline-white"><i class="fas fa-phone-alt"></i> Get Free Quote</a>
+      </div>
+      <div class="hero-divider"></div>
+      
+  </div>
+</section>
+
+<!-- ══ STATS ════════════════════════════════════════════════ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-icon"><i class="fas fa-hard-hat"></i></div>
+        <div class="stat-num">
+          <span data-count="36" data-suffix="+">0</span>
+        </div>
+        <div class="stat-lbl">Years of Experience</div>
+      </div>
+      <div class="stat-card reveal d1">
+        <div class="stat-icon"><i class="fas fa-building"></i></div>
+        <div class="stat-num">
+          <span data-count="50" data-suffix="+">0</span>
+        </div>
+        <div class="stat-lbl">Projects Completed</div>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="stat-icon"><i class="fas fa-rupee-sign"></i></div>
+        <div class="stat-num">
+          <em>₹</em><span data-count="150" data-suffix="Cr+">0</span>
+        </div>
+        <div class="stat-lbl">Worth of Projects</div>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="stat-icon"><i class="fas fa-smile"></i></div>
+        <div class="stat-num">
+          <span data-count="100" data-suffix="+">0</span>
+        </div>
+        <div class="stat-lbl">Happy Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT STRIP ══════════════════════════════════════════ -->
+<section class="about-strip">
+  <div class="container">
+    <div class="as-grid">
+      <div class="as-img reveal-l">
+        <div class="as-img-inner"><img src="assets/srivari.jpg" alt="Srivari Constructions"></div>
+        <div class="as-badge">
+        </div>
+      </div>
+      <div class="as-text reveal-r">
+        <div class="section-tag">About Srivari Constructions</div>
+        <h2>Trusted Builders Crafting <span>Tomorrow's Landmarks</span></h2>
+        
+
+<p>
+Founded in <strong>1990</strong> by <strong>Mr. Munuswamy</strong>, Srivari Constructions has grown into one of Tamil Nadu’s trusted construction companies with over three generations of excellence in civil engineering and infrastructure development.
+</p>
+
+<p>
+Under the leadership of <strong>Mr. Thirusangu</strong> and Managing Partner &amp; CEO <strong>T. Muhilvannan B.E.</strong>, the company has successfully delivered numerous residential, commercial, industrial, road, bridge, and government projects across the state.
+</p>
+
+<p>
+Our commitment to quality construction, timely delivery, advanced equipment, and transparent practices has earned the trust of clients throughout Tamil Nadu, making Srivari Constructions a reliable name in the construction industry.
+</p>
+        <div class="as-feats">
+          <div class="as-feat"><i class="fas fa-check-circle"></i> ISO Certified Processes</div>
+          <div class="as-feat"><i class="fas fa-check-circle"></i> Expert Engineering Team</div>
+          <div class="as-feat"><i class="fas fa-check-circle"></i> On-Time Delivery</div>
+          <div class="as-feat"><i class="fas fa-check-circle"></i> Transparent Pricing</div>
+          <div class="as-feat"><i class="fas fa-check-circle"></i> Premium Materials</div>
+          <div class="as-feat"><i class="fas fa-check-circle"></i> Post-Completion Support</div>
+        </div>
+        <a href="about.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLIENTS MARQUEE ══════════════════════════════════════ -->
+<section class="clients-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Trusted By</div>
+      <h2 class="section-title">Our <span>Valued Clients</span></h2>
+      <span class="divider"></span>
+    </div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- Set 1 -->
+      <div class="client-chip" title="Kalyani Bharat Forge"><img src="assets/clients/Kalyani_Bharat_Forge.png" alt="Kalyani Bharat Forge"><span>Kalyani Bharat Forge</span></div>
+      <div class="client-chip" title="Royal Enfield"><img src="assets/clients/Royal_Enfield.png" alt="Royal Enfield"><span>Royal Enfield</span></div>
+      <div class="client-chip" title="Indian Overseas Bank"><img src="assets/clients/Indian_Overseas_Bank.png" alt="Indian Overseas Bank"><span>Indian Overseas Bank</span></div>
+      <div class="client-chip" title="P.T. Lee Chengalvaraya Naicker Trust"><img src="assets/clients/PT_Lee_Chengalvaraya_Naicker_Trust.png" alt="P.T. Lee Chengalvaraya Naicker Trust"><span>PT Lee Chengalvaraya Naicker Trust</span></div>
+      <div class="client-chip" title="MLP"><img src="assets/clients/MLP.png" alt="MLP"><span>MLP</span></div>
+      <div class="client-chip" title="SSCO"><img src="assets/clients/SSCO_Subrahmanyan_Construction.png" alt="SSCO"><span>SSCO</span></div>
+      <div class="client-chip" title="Vara Mahalakshmi Silks"><img src="assets/clients/Kancheepuram_Vara_Mahalakshmi_Silks.png" alt="Vara Mahalakshmi Silks"><span>Vara Mahalakshmi Silks</span></div>
+      <div class="client-chip" title="Smart City"><img src="assets/clients/Smart_City.png" alt="Smart City"><span>Smart City</span></div>
+      <div class="client-chip" title="Tiruchirappalli City Corporation"><img src="assets/clients/Tiruchirappalli_City_Corporation.png" alt="Tiruchirappalli City Corporation"><span>Trichy City Corp.</span></div>
+      <div class="client-chip" title="Indian Bank"><img src="assets/clients/Indian_Bank.png" alt="Indian Bank"><span>Indian Bank</span></div>
+      <div class="client-chip" title="Tamil Nadu PWD"><img src="assets/clients/Tamilnadu_Public_Works_Department.png" alt="Tamil Nadu PWD"><span>Tamil Nadu PWD</span></div>
+      <div class="client-chip" title="HD"><img src="assets/clients/HD_Logo.png" alt="HD"><span>HD</span></div>
+      <!-- Set 2: duplicate for seamless loop -->
+      <div class="client-chip" title="Kalyani Bharat Forge"><img src="assets/clients/Kalyani_Bharat_Forge.png" alt="Kalyani Bharat Forge"><span>Kalyani Bharat Forge</span></div>
+      <div class="client-chip" title="Royal Enfield"><img src="assets/clients/Royal_Enfield.png" alt="Royal Enfield"><span>Royal Enfield</span></div>
+      <div class="client-chip" title="Indian Overseas Bank"><img src="assets/clients/Indian_Overseas_Bank.png" alt="Indian Overseas Bank"><span>Indian Overseas Bank</span></div>
+      <div class="client-chip" title="P.T. Lee Chengalvaraya Naicker Trust"><img src="assets/clients/PT_Lee_Chengalvaraya_Naicker_Trust.png" alt="P.T. Lee Chengalvaraya Naicker Trust"><span>PT Lee Chengalvaraya Naicker Trust</span></div>
+      <div class="client-chip" title="MLP"><img src="assets/clients/MLP.png" alt="MLP"><span>MLP</span></div>
+      <div class="client-chip" title="SSCO"><img src="assets/clients/SSCO_Subrahmanyan_Construction.png" alt="SSCO"><span>SSCO</span></div>
+      <div class="client-chip" title="Vara Mahalakshmi Silks"><img src="assets/clients/Kancheepuram_Vara_Mahalakshmi_Silks.png" alt="Vara Mahalakshmi Silks"><span>Vara Mahalakshmi Silks</span></div>
+      <div class="client-chip" title="Smart City"><img src="assets/clients/Smart_City.png" alt="Smart City"><span>Smart City</span></div>
+      <div class="client-chip" title="Tiruchirappalli City Corporation"><img src="assets/clients/Tiruchirappalli_City_Corporation.png" alt="Tiruchirappalli City Corporation"><span>Trichy City Corp.</span></div>
+      <div class="client-chip" title="Indian Bank"><img src="assets/clients/Indian_Bank.png" alt="Indian Bank"><span>Indian Bank</span></div>
+      <div class="client-chip" title="Tamil Nadu PWD"><img src="assets/clients/Tamilnadu_Public_Works_Department.png" alt="Tamil Nadu PWD"><span>Tamil Nadu PWD</span></div>
+      <div class="client-chip" title="HD"><img src="assets/clients/HD_Logo.png" alt="HD"><span>HD</span></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES PREVIEW ═════════════════════════════════════ -->
+<section class="services-preview section-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Our Core <span>Services</span></h2>
+      <p class="section-subtitle">Comprehensive construction solutions delivered with precision, quality, and professionalism.</p>
+      <span class="divider"></span>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal d1">
+        <div class="srv-icon"><i class="fas fa-home"></i></div>
+        <h3>Residential Construction</h3>
+        <p>From compact homes to luxury villas — we design and build living spaces that reflect your vision with meticulous craftsmanship.</p>
+        <a href="services.html" class="srv-link">Explore Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="srv-card reveal d2">
+        <div class="srv-icon"><i class="fas fa-city"></i></div>
+        <h3>Commercial Construction</h3>
+        <p>Offices, malls, hotels, and institutional buildings — we execute commercial projects with precision and compliance.</p>
+        <a href="services.html" class="srv-link">Explore Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="srv-card reveal d3">
+        <div class="srv-icon"><i class="fas fa-tools"></i></div>
+        <h3>Civil Engineering</h3>
+        <p>Roads, bridges, drainage systems, and infrastructure — backed by certified engineers and proven methodologies.</p>
+        <a href="services.html" class="srv-link">Explore Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="srv-card reveal d2">
+        <div class="srv-icon"><i class="fas fa-couch"></i></div>
+        <h3>Interior Works</h3>
+        <p>Transform your interiors with elegant designs, premium finishes, and functional layouts curated by our expert team.</p>
+        <a href="services.html" class="srv-link">Explore Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="srv-card reveal d3">
+        <div class="srv-icon"><i class="fas fa-hammer"></i></div>
+        <h3>Renovation &amp; Refurbishment</h3>
+        <p>Breathe new life into existing structures with our expert renovation services — structural, aesthetic, or both.</p>
+        <a href="services.html" class="srv-link">Explore Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="srv-card reveal d4">
+        <div class="srv-icon"><i class="fas fa-tasks"></i></div>
+        <h3>Project Management</h3>
+        <p>End-to-end project oversight — planning, scheduling, procurement, quality control and stakeholder coordination.</p>
+        <a href="services.html" class="srv-link">Explore Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="services.html" class="btn btn-dark"><i class="fas fa-th-large"></i> View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURED PROJECTS ════════════════════════════════════ -->
+<section class="projects-preview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Work</div>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <p class="section-subtitle">
+        A glimpse of our completed landmark projects across residential,
+        educational, commercial, and smart city infrastructure sectors.
+      </p>
+      <span class="divider"></span>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- Project 1 -->
+      <div class="proj-card reveal d1">
+        <div class="proj-bg pb1"
+          style="display:flex;align-items:center;justify-content:center;font-size:5rem;height:100%">
+          🏢
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <span class="proj-badge">Residential</span>
+          <div class="proj-name">Abinaya Residency</div>
+          <div class="proj-loc">
+            <i class="fas fa-coins"></i> Rs. 13.00 Crore
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="proj-card reveal d2">
+        <div class="proj-bg pb2"
+          style="display:flex;align-items:center;justify-content:center;font-size:5rem;height:100%">
+          🏬
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <span class="proj-badge">Commercial</span>
+          <div class="proj-name">Mahalakshmi Plaza</div>
+          <div class="proj-loc">
+            <i class="fas fa-coins"></i> Rs. 12.00 Crore
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="proj-card reveal d3">
+        <div class="proj-bg pb3"
+          style="display:flex;align-items:center;justify-content:center;font-size:5rem;height:100%">
+          🎓
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <span class="proj-badge">Educational</span>
+          <div class="proj-name">Mount Park – CBSE School</div>
+          <div class="proj-loc">
+            <i class="fas fa-map-marker-alt"></i> Kallakurichi · Rs. 8.50 Crore
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="proj-card reveal d2">
+        <div class="proj-bg pb4"
+          style="display:flex;align-items:center;justify-content:center;font-size:5rem;height:100%">
+          🐟
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <span class="proj-badge">Smart City</span>
+          <div class="proj-name">Modern Hygienic Fish Market</div>
+          <div class="proj-loc">
+            <i class="fas fa-coins"></i> Rs. 4.25 Crore
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="proj-card reveal d3">
+        <div class="proj-bg pb5"
+          style="display:flex;align-items:center;justify-content:center;font-size:5rem;height:100%">
+          🏘️
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <span class="proj-badge">Residential</span>
+          <div class="proj-name">Construction of Villa Houses</div>
+          <div class="proj-loc">
+            <i class="fas fa-coins"></i> Rs. 3.00 Crore
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="proj-card reveal d4">
+        <div class="proj-bg pb6"
+          style="display:flex;align-items:center;justify-content:center;font-size:5rem;height:100%">
+          🔬
+        </div>
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <span class="proj-badge">Smart City</span>
+          <div class="proj-name">Science Park</div>
+          <div class="proj-loc">
+            <i class="fas fa-coins"></i> Rs. 2.70 Crore
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px">
+      <a href="projects.html" class="btn btn-primary">
+        <i class="fas fa-folder-open"></i> View All Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIALS ══════════════════════════════════════════ -->
+<section class="testi-section">
+  <div class="container">
+    <div class="section-header white-text">
+      <div class="section-tag">Client Feedback</div>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+      <p class="section-subtitle">Real experiences from homeowners, developers, and institutions who trusted us.</p>
+      <span class="divider"></span>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <div class="stars">★★★★★</div>
+        <div class="quote">"</div>
+        <p class="testi-text">Srivari Constructions built our dream home with exceptional attention to detail. The quality of work and timely delivery exceeded all our expectations. Truly professional team!</p>
+        <div class="testi-author">
+          <div class="t-avatar">R</div>
+          <div>
+            <div class="t-name">Rajesh Kumar</div>
+            <div class="t-role">Homeowner, Trichy</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="stars">★★★★★</div>
+        <div class="quote">"</div>
+        <p class="testi-text">We awarded our commercial complex project to Srivari and they delivered it on schedule with zero compromise on structural quality. Highly recommend for large-scale projects.</p>
+        <div class="testi-author">
+          <div class="t-avatar">S</div>
+          <div>
+            <div class="t-name">Sudha Krishnan</div>
+            <div class="t-role">Director, Sri Ventures</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="stars">★★★★★</div>
+        <div class="quote">"</div>
+        <p class="testi-text">The renovation they did for our office was outstanding. Creative design, superior finishes, and they stayed within budget. Mr. Muhilvannan personally oversees every project.</p>
+        <div class="testi-author">
+          <div class="t-avatar">P</div>
+          <div>
+            <div class="t-name">Priya Anandan</div>
+            <div class="t-role">MD, Annai Group</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Build Your Dream Project?</h2>
+    <p>Contact us today for a free consultation and quote. Let's turn your vision into reality.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-outline-white"><i class="fas fa-phone-alt"></i> Call Us Now</a>
+      <a href="contact.html" class="btn" style="background:var(--white);color:var(--primary);font-weight:700"><i class="fas fa-envelope"></i> Get Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/logo.png" alt="Srivari Constructions" class="footer-logo">
+          <p class="footer-about-text">Building dreams with precision and excellence since 2009. Trichy's trusted construction partner for residential, commercial, and infrastructure projects.</p>
+          <div class="socials">
+            <a href="#" class="s-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="s-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="s-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="s-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="flinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="equipments.html">Equipments</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="flinks">
+            <li><a href="services.html">Residential Construction</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Interior Works</a></li>
+            <li><a href="services.html">Renovation</a></li>
+            <li><a href="services.html">Civil Engineering</a></li>
+            <li><a href="services.html">Project Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div>
+            <div class="fc-item"><i class="fas fa-map-marker-alt"></i><span>No. 163, Dhandapani Apartments, Ponnagar, 9th Cross, Trichy – 620 001</span></div>
+            <div class="fc-item"><i class="fas fa-phone-alt"></i><span><a href="tel:+919003080565">+91 90030 80565</a></span></div>
+            <div class="fc-item"><i class="fas fa-envelope"></i><span><a href="mailto:srivariconstructions75@gmail.com">srivariconstructions75@gmail.com</a></span></div>
+            <div class="fc-item"><i class="fas fa-globe"></i><span><a href="https://www.srivariconstructions.com" target="_blank">www.srivariconstructions.com</a></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2024 Srivari Constructions. All Rights Reserved.</p>
+        <p>Designed with <span style="color:var(--primary)">♥</span> for <a href="#">Srivari Constructions</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

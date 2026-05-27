@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Srivari Constructions Projects &#8211; Major, completed and current year projects across Tamil Nadu.">
+  <title>Projects | Srivari Constructions</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── Stats bar ── */
+    .project-stats-bar{background:var(--dark);padding:50px 0}
+    .psb-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:2px;background:rgba(255,255,255,.05);border-radius:var(--radius)}
+    .psb-item{background:var(--dark-2);padding:30px 20px}
+    .psb-num{font-family:var(--font-h);font-size:2.4rem;font-weight:900;color:var(--primary);line-height:1;margin-bottom:8px}
+    .psb-lbl{font-size:.8rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em}
+
+    /* ── Section wrappers ── */
+    .proj-section{margin-bottom:60px}
+    .proj-section-head{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:18px;border-bottom:2px solid var(--border)}
+    .proj-section-head .ps-icon{width:48px;height:48px;background:var(--primary);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .proj-section-head .ps-icon i{color:var(--white);font-size:1.2rem}
+    .proj-section-head h3{font-size:1.6rem;margin:0}
+    .proj-section-head .ps-count{margin-left:auto;background:var(--light);color:var(--text-light);font-size:.78rem;font-weight:600;padding:4px 14px;border-radius:20px;white-space:nowrap}
+
+    /* ── Major project cards ── */
+    .mproj-list{display:flex;flex-direction:column;gap:14px}
+    .mproj-card{display:flex;align-items:flex-start;gap:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 28px;transition:var(--tr)}
+    .mproj-card:hover{box-shadow:var(--shadow);border-color:var(--primary);transform:translateY(-2px)}
+    .mproj-num{min-width:44px;height:44px;background:var(--primary);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0;margin-top:2px}
+    .mproj-body{flex:1}
+    .mproj-name{font-family:var(--font-h);font-size:1.02rem;font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:6px}
+    .mproj-meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+    .mproj-client{font-size:.8rem;color:var(--text-light);display:flex;align-items:center;gap:5px}
+    .mproj-client i{color:var(--primary);font-size:.75rem}
+    .mproj-val{margin-left:auto;background:rgba(196,18,48,.07);color:var(--primary);font-family:var(--font-h);font-weight:800;font-size:1rem;padding:6px 16px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+
+    /* ── Table layout (completed & current) ── */
+    .proj-table-wrap{overflow-x:auto;border-radius:var(--radius-lg);border:1px solid var(--border)}
+    .proj-table{width:100%;border-collapse:collapse}
+    .proj-table thead tr{background:var(--dark)}
+    .proj-table th{padding:16px 24px;text-align:left;color:var(--white);font-family:var(--font-h);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+    .proj-table th:last-child{text-align:right}
+    .proj-table td{padding:16px 24px;border-bottom:1px solid var(--border);font-size:.93rem;color:var(--text);vertical-align:middle}
+    .proj-table tbody tr:last-child td{border-bottom:none}
+    .proj-table tbody tr:hover td{background:var(--light)}
+    .proj-table .td-num{width:52px;color:var(--text-muted);font-weight:700;font-size:.85rem}
+    .proj-table .td-val{text-align:right;white-space:nowrap;font-family:var(--font-h);font-weight:800;color:var(--primary);font-size:1rem}
+    .proj-table .td-val span{background:rgba(196,18,48,.07);padding:4px 12px;border-radius:20px}
+
+    /* ── Filter btn override for 4 items ── */
+    .proj-filter{flex-wrap:wrap}
+
+    @media(max-width:768px){
+      .psb-grid{grid-template-columns:repeat(2,1fr)}
+      .mproj-card{flex-wrap:wrap;gap:12px}
+      .mproj-val{margin-left:0}
+      .proj-section-head .ps-count{display:none}
+      .proj-table th,.proj-table td{padding:12px 14px}
+    }
+    @media(max-width:480px){
+      .mproj-card{padding:18px}
+      .mproj-num{min-width:36px;height:36px;font-size:.88rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-inner" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="Srivari Constructions" class="nav-logo">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nav-link">Home</a></li>
+      <li><a href="about.html"      class="nav-link">About Us</a></li>
+      <li><a href="services.html"   class="nav-link">Services</a></li>
+      <li><a href="projects.html"   class="nav-link active">Projects</a></li>
+      <li><a href="equipments.html" class="nav-link">Equipments</a></li>
+      <li><a href="contact.html"    class="nav-link btn-nav">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <h1>Our Projects</h1>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span class="cur">Projects</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT STATS -->
+<div class="project-stats-bar">
+  <div class="container">
+    <div class="psb-grid">
+      <div class="psb-item reveal d1">
+        <div class="psb-num">50+</div>
+        <div class="psb-lbl">Total Projects</div>
+      </div>
+      <div class="psb-item reveal d2">
+        <div class="psb-num">11</div>
+        <div class="psb-lbl">Major Projects</div>
+      </div>
+      <div class="psb-item reveal d3">
+        <div class="psb-num">8</div>
+        <div class="psb-lbl">Completed Highlights</div>
+      </div>
+      <div class="psb-item reveal d4">
+        <div class="psb-num">4</div>
+        <div class="psb-lbl">Current Year</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS CONTENT -->
+<section class="projects-page">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Portfolio</div>
+      <h2 class="section-title">Project <span>Portfolio</span></h2>
+      <p class="section-subtitle">A comprehensive record of landmark projects delivered with precision and excellence across Tamil Nadu.</p>
+      <span class="divider"></span>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="proj-filter">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="major">Major Projects</button>
+      <button class="filter-btn" data-filter="completed">Completed Projects</button>
+      <button class="filter-btn" data-filter="current">Current Year Projects</button>
+    </div>
+
+    <!-- ═══ MAJOR PROJECTS ═══ -->
+    <div class="proj-section reveal" data-section="major">
+      <div class="proj-section-head">
+        <div class="ps-icon"><i class="fas fa-trophy"></i></div>
+        <h3>Major Projects</h3>
+        <span class="ps-count">11 Projects</span>
+      </div>
+      <div class="mproj-list">
+
+        <div class="mproj-card reveal d1">
+          <div class="mproj-num">01</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Residential Building (Abinaya Residency), Trichy</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Trichy, Tamil Nadu</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 13 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d2">
+          <div class="mproj-num">02</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Mount Park, CBSE School at Kallakurichi</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Kallakurichi, Tamil Nadu</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 8.50 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d3">
+          <div class="mproj-num">03</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Modern Hygienic Fish Market at Trichy</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Trichy, Tamil Nadu</span>
+              <span class="mproj-client"><i class="fas fa-city"></i> Smart City Initiative</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 4.25 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d1">
+          <div class="mproj-num">04</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Commercial Building at Rajaji Salai, Chennai</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Rajaji Salai, Chennai</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 4.25 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d2">
+          <div class="mproj-num">05</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Boy&#8217;s Hostel Building at P.T. Lee Chengalvaraya Naicker Trust Engineering College, Oovery</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Oovery, Kanchipuram</span>
+              <span class="mproj-client"><i class="fas fa-user-tie"></i> P.T. Lee Chengalvaraya Naicker Trust</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 4.75 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d3">
+          <div class="mproj-num">06</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Entrance Arch &amp; Compound Wall in front of P.T. Lee Engineering College, Oovery</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Oovery, Kanchipuram</span>
+              <span class="mproj-client"><i class="fas fa-user-tie"></i> P.T. Lee Chengalvaraya Naicker Trust</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 3.00 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d1">
+          <div class="mproj-num">07</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Permanent Building for RSETI&#8211;IOB, Pudukkottai</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Pudukkottai, Tamil Nadu</span>
+              <span class="mproj-client"><i class="fas fa-university"></i> Indian Overseas Bank</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 2.70 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d2">
+          <div class="mproj-num">08</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Science Park at Anna Nagar, Trichy</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Anna Nagar, Trichy</span>
+              <span class="mproj-client"><i class="fas fa-city"></i> Smart City Initiative</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 2.70 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d3">
+          <div class="mproj-num">09</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Commercial Building at Mint Street, Chennai</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Mint Street, Chennai</span>
+              <span class="mproj-client"><i class="fas fa-user-tie"></i> P.T. Lee Chengalvaraya Nayacker Trust</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 2.50 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d1">
+          <div class="mproj-num">10</div>
+          <div class="mproj-body">
+            <div class="mproj-name">External Road Development Works along with Compound Wall Cladding at Main Building, IOB Central Office, Chennai</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Central Office, Chennai</span>
+              <span class="mproj-client"><i class="fas fa-university"></i> Indian Overseas Bank</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 2.25 Crores</div>
+        </div>
+
+        <div class="mproj-card reveal d2">
+          <div class="mproj-num">11</div>
+          <div class="mproj-body">
+            <div class="mproj-name">Construction of Additional Floor to House Conference Hall at Academic Block, Staff College, IOB, Chennai</div>
+            <div class="mproj-meta">
+              <span class="mproj-client"><i class="fas fa-map-marker-alt"></i> Staff College, Chennai</span>
+              <span class="mproj-client"><i class="fas fa-university"></i> Indian Overseas Bank</span>
+            </div>
+          </div>
+          <div class="mproj-val">Rs. 1.50 Crores</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ COMPLETED PROJECTS ═══ -->
+    <div class="proj-section reveal" data-section="completed">
+      <div class="proj-section-head">
+        <div class="ps-icon"><i class="fas fa-check-circle"></i></div>
+        <h3>Completed Projects</h3>
+        <span class="ps-count">8 Projects</span>
+      </div>
+      <div class="proj-table-wrap">
+        <table class="proj-table">
+          <thead>
+            <tr>
+              <th class="td-num">#</th>
+              <th>Name of Work</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="reveal d1">
+              <td class="td-num">01</td>
+              <td>Abinaya Residency</td>
+              <td class="td-val"><span>Rs. 13.00 Crore</span></td>
+            </tr>
+            <tr class="reveal d2">
+              <td class="td-num">02</td>
+              <td>Mahalakshmi Plaza</td>
+              <td class="td-val"><span>Rs. 12.00 Crore</span></td>
+            </tr>
+            <tr class="reveal d3">
+              <td class="td-num">03</td>
+              <td>Mount Park &#8211; CBSE School &#8211; Kallakurichi</td>
+              <td class="td-val"><span>Rs. 8.50 Crore</span></td>
+            </tr>
+            <tr class="reveal d1">
+              <td class="td-num">04</td>
+              <td>Smart City &#8211; Modern Hygienic Fish Market</td>
+              <td class="td-val"><span>Rs. 4.25 Crore</span></td>
+            </tr>
+            <tr class="reveal d2">
+              <td class="td-num">05</td>
+              <td>Construction of Villa Houses</td>
+              <td class="td-val"><span>Rs. 3.00 Crore</span></td>
+            </tr>
+            <tr class="reveal d3">
+              <td class="td-num">06</td>
+              <td>Smart City &#8211; Science Park</td>
+              <td class="td-val"><span>Rs. 2.70 Crore</span></td>
+            </tr>
+            <tr class="reveal d1">
+              <td class="td-num">07</td>
+              <td>Sri Siksha Kendra International School</td>
+              <td class="td-val"><span>Rs. 2.50 Crore</span></td>
+            </tr>
+            <tr class="reveal d2">
+              <td class="td-num">08</td>
+              <td>Bharath Forge Limited Compound Wall</td>
+              <td class="td-val"><span>Rs. 1.60 Crore</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ CURRENT YEAR PROJECTS ═══ -->
+    <div class="proj-section reveal" data-section="current">
+      <div class="proj-section-head">
+        <div class="ps-icon"><i class="fas fa-hard-hat"></i></div>
+        <h3>Current Year Projects</h3>
+        <span class="ps-count">4 Projects</span>
+      </div>
+      <div class="proj-table-wrap">
+        <table class="proj-table">
+          <thead>
+            <tr>
+              <th class="td-num">#</th>
+              <th>Name of Work</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="reveal d1">
+              <td class="td-num">01</td>
+              <td>Villa Projects</td>
+              <td class="td-val"><span>Rs. 10.0 Crore</span></td>
+            </tr>
+            <tr class="reveal d2">
+              <td class="td-num">02</td>
+              <td>Indian Overseas Bank Projects</td>
+              <td class="td-val"><span>Rs. 8.50 Crore</span></td>
+            </tr>
+            <tr class="reveal d3">
+              <td class="td-num">03</td>
+              <td>P.T. Lee Chengalvaraya Naicker Trust Projects</td>
+              <td class="td-val"><span>Rs. 8.0 Crore</span></td>
+            </tr>
+            <tr class="reveal d1">
+              <td class="td-num">04</td>
+              <td>Commercial Building &#8211; Sastri Road, Trichy</td>
+              <td class="td-val"><span>Rs. 6.0 Crore</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Want to Discuss Your Project?</h2>
+    <p>Let us help you bring your vision to life with our expertise and commitment to excellence.</p>
+    <div class="cta-btns">
+      <a href="contact.html"  class="btn btn-outline-white"><i class="fas fa-phone-alt"></i> Contact Us</a>
+      <a href="services.html" class="btn" style="background:var(--white);color:var(--primary);font-weight:700"><i class="fas fa-th-large"></i> Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/logo.png" alt="Srivari Constructions" class="footer-logo">
+          <p class="footer-about-text">Building dreams with precision and excellence since 2009. Trichy&#8217;s trusted construction partner for residential, commercial, and infrastructure projects.</p>
+          <div class="socials">
+            <a href="#" class="s-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="s-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="s-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="s-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="flinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="equipments.html">Equipments</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="flinks">
+            <li><a href="services.html">Residential Construction</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Interior Works</a></li>
+            <li><a href="services.html">Renovation</a></li>
+            <li><a href="services.html">Civil Engineering</a></li>
+            <li><a href="services.html">Project Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div>
+            <div class="fc-item"><i class="fas fa-map-marker-alt"></i><span>No. 163, Dhandapani Apartments, Ponnagar, 9th Cross, Trichy &#8211; 620 001</span></div>
+            <div class="fc-item"><i class="fas fa-phone-alt"></i><span><a href="tel:+919003080565">+91 90030 80565</a></span></div>
+            <div class="fc-item"><i class="fas fa-envelope"></i><span><a href="mailto:srivariconstructions75@gmail.com">srivariconstructions75@gmail.com</a></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2024 Srivari Constructions. All Rights Reserved.</p>
+        <p>Designed with <span style="color:var(--primary)">&#9829;</span> for <a href="#">Srivari Constructions</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+<script>
+  /* Section-based filter for projects page */
+  (function () {
+    const btns     = document.querySelectorAll('.proj-filter .filter-btn');
+    const sections = document.querySelectorAll('.proj-section[data-section]');
+    btns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        btns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const f = this.dataset.filter;
+        sections.forEach(sec => {
+          sec.style.display = (f === 'all' || sec.dataset.section === f) ? 'block' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
