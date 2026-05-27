@@ -668,8 +668,6 @@ p  { line-height:1.75; color:var(--text-light); }
   .navbar .container{position:relative}
   .nav-brand{position:absolute;left:50%;transform:translateX(-50%);z-index:1}
   .nav-logo{height:62px}
-  .hero{margin-top:96px}
-  .page-hero{margin-top:96px}
   .nav-links{
     position:fixed;top:0;right:-100%;width:min(300px,85vw);height:100vh;
     background:var(--dark);flex-direction:column;align-items:flex-start;
