@@ -632,6 +632,29 @@ p  { line-height:1.75; color:var(--text-light); }
 .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 .d4{transition-delay:.4s} .d5{transition-delay:.5s} .d6{transition-delay:.6s}
 
+/* ── FLOATING CONTACT BUTTONS ───────────────────────────── */
+.float-btns {
+  position:fixed; bottom:94px; right:24px;
+  display:flex; flex-direction:column; gap:10px; z-index:997;
+}
+.float-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:13px 22px; border-radius:50px;
+  font-size:.88rem; font-weight:700; color:var(--white);
+  box-shadow:0 4px 20px rgba(0,0,0,.28); transition:var(--tr); white-space:nowrap;
+}
+.float-btn:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(0,0,0,.35); color:var(--white); }
+.float-btn i { font-size:1.15rem; }
+.float-wa   { background:#25D366; }
+.float-wa:hover { background:#1fba5a; }
+.float-call { background:#128C7E; }
+.float-call:hover { background:#0e7468; }
+@media(max-width:768px){
+  .float-btns{ bottom:88px; right:14px; }
+  .float-btn { padding:11px 16px; font-size:.8rem; gap:8px; }
+  .float-btn i { font-size:1rem; }
+}
+
 /* ── BACK TO TOP ─────────────────────────────────────────── */
 .back-to-top {
   position:fixed; bottom:30px; right:30px; width:48px; height:48px;
