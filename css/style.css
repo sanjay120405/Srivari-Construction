@@ -602,7 +602,7 @@ p  { line-height:1.75; color:var(--text-light); }
 }
 /* ── TESTIMONIALS ───────────────────────────────────────── */
 .testi-section {
-  padding: 70px 0; /* reduced section spacing */
+  padding: 70px 0;
   background: var(--dark);
   position: relative;
   overflow: hidden;
@@ -619,13 +619,13 @@ p  { line-height:1.75; color:var(--text-light); }
   display: grid;
   grid-template-columns: repeat(2, 300px);
   justify-content: center;
-  gap: 20px; /* reduced gap */
+  gap: 20px;
 }
 
 .testi-card {
   background: var(--dark-2);
   border-radius: var(--radius-lg);
-  padding: 24px 20px; /* reduced inner spacing */
+  padding: 24px 20px;
   border: 1px solid rgba(255,255,255,.05);
   transition: var(--tr);
   position: relative;
@@ -634,11 +634,11 @@ p  { line-height:1.75; color:var(--text-light); }
 
 .testi-card:hover {
   border-color: rgba(196,18,48,.4);
-  transform: translateY(-4px); /* softer hover */
+  transform: translateY(-4px);
 }
 
 .quote {
-  font-size: 2.4rem; /* slightly smaller */
+  font-size: 2.4rem;
   color: var(--primary);
   line-height: 1;
   margin-bottom: 10px;
@@ -649,7 +649,7 @@ p  { line-height:1.75; color:var(--text-light); }
 .testi-text {
   font-size: .84rem;
   color: rgba(255,255,255,.72);
-  line-height: 1.6; /* tighter text */
+  line-height: 1.6;
   font-style: italic;
   margin-bottom: 16px;
 }
@@ -699,21 +699,37 @@ p  { line-height:1.75; color:var(--text-light); }
 /* Mobile */
 @media (max-width: 768px) {
   .testi-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 top + 2 bottom */
-    gap: 14px;
-    padding: 0 14px;
+    grid-template-columns: repeat(2, 1fr); /* side by side */
+    gap: 12px;
+    padding: 0 12px;
   }
 
   .testi-card {
     width: 100%;
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
-}
 
-/* Small mobile */
-@media (max-width: 480px) {
-  .testi-grid {
-    grid-template-columns: 1fr;
+  .quote {
+    font-size: 2rem;
+  }
+
+  .testi-text {
+    font-size: .78rem;
+    line-height: 1.5;
+  }
+
+  .t-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: .9rem;
+  }
+
+  .t-name {
+    font-size: .82rem;
+  }
+
+  .t-role {
+    font-size: .7rem;
   }
 }
 /* ── CTA SECTION ────────────────────────────────────────── */
@@ -790,20 +806,94 @@ p  { line-height:1.75; color:var(--text-light); }
 .ab-feat i { color:var(--primary); }
 
 /* Mission & Vision */
-.mv-section { padding:90px 0; background:var(--light); }
-.mv-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.mv-section {
+  padding: 90px 0;
+  background: var(--light);
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
 .mv-card {
-  background:var(--white); padding:50px 42px; border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-sm); position:relative; overflow:hidden;
+  background: var(--white);
+  padding: 50px 42px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
 }
-.mv-card::before { content:''; position:absolute; top:0; left:0; width:5px; height:100%; background:var(--primary); }
+
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--primary);
+}
+
 .mv-icon {
-  width:68px; height:68px; background:rgba(196,18,48,.1); border-radius:var(--radius);
-  display:flex; align-items:center; justify-content:center; font-size:2rem;
-  color:var(--primary); margin-bottom:24px;
+  width: 68px;
+  height: 68px;
+  background: rgba(196,18,48,.1);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 24px;
 }
-.mv-card h3 { font-size:1.5rem; color:var(--dark); margin-bottom:16px; }
-.mv-card p  { font-size:.92rem; line-height:1.8; }
+
+.mv-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.mv-card p {
+  font-size: .92rem;
+  line-height: 1.8;
+}
+
+/* Mobile View - Side by Side */
+@media (max-width: 768px) {
+
+  .mv-section {
+    padding: 70px 0;
+  }
+
+  .mv-grid {
+    grid-template-columns: repeat(2, 1fr); /* side by side */
+    gap: 14px;
+    padding: 0 14px;
+  }
+
+  .mv-card {
+    padding: 26px 18px;
+  }
+
+  .mv-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .mv-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .mv-card p {
+    font-size: .78rem;
+    line-height: 1.5;
+  }
+}
 
 /* History */
 .history-section { padding:90px 0; }
