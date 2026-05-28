@@ -81,9 +81,15 @@
       .equip-table-wrap{display:none}
     }
     @media(max-width:480px){
-      .equip-summary{grid-template-columns:1fr 1fr}
-      .eq-list-grid{grid-template-columns:1fr;gap:12px}
-      .eql-card{flex-direction:row;align-items:center}
+      .equip-summary{grid-template-columns:repeat(3,1fr)}
+      .esm-item{padding:20px 8px}
+      .esm-num{font-size:1.8rem}
+      .esm-lbl{font-size:.62rem;letter-spacing:.04em}
+      .eq-list-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+      .eql-card{padding:14px 12px;flex-direction:column;align-items:flex-start}
+      .eql-icon{width:44px;height:44px;font-size:1.1rem}
+      .eql-name{font-size:.82rem}
+      .eql-qty{font-size:.78rem;padding:4px 10px}
     }
   </style>
 </head>
