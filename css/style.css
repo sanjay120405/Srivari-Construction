@@ -1156,9 +1156,9 @@ p  { line-height:1.75; color:var(--text-light); }
 @media(max-width:768px){
   .section{padding:70px 0}
   .container{padding:0 16px}
-  /* ── Logo left, hamburger right ── */
-  .navbar .container{position:static;justify-content:space-between}
-  .nav-brand{position:static;transform:none}
+  /* ── Logo centered, hamburger right ── */
+  .navbar .container{position:relative;justify-content:flex-end}
+  .nav-brand{position:absolute;left:50%;transform:translateX(-50%);z-index:1}
   .nav-logo{height:55px}
   .hamburger{display:flex;position:relative;z-index:1001;padding:12px;margin-right:-12px}
   .nav-links{
