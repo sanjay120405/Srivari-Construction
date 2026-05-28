@@ -33,13 +33,13 @@
 }
 
 /* ── RESET ──────────────────────────────────────────────── */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 html { scroll-behavior:smooth; font-size:16px; }
 body { font-family:var(--font-b); color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; }
 img  { max-width:100%; height:auto; display:block; }
-a    { text-decoration:none; color:inherit; transition:var(--tr); }
+a    { text-decoration:none; color:inherit; transition:var(--tr); touch-action:manipulation; }
 ul   { list-style:none; }
-button { cursor:pointer; border:none; background:none; font-family:var(--font-b); }
+button { cursor:pointer; border:none; background:none; font-family:var(--font-b); touch-action:manipulation; }
 input,textarea,select { font-family:var(--font-b); }
 
 /* ── TYPOGRAPHY ─────────────────────────────────────────── */
@@ -430,8 +430,8 @@ p  { line-height:1.75; color:var(--text-light); }
   animation:marquee 35s linear infinite;
 }
 
-.marquee-track:hover {
-  animation-play-state:paused;
+@media(hover:hover){
+  .marquee-track:hover { animation-play-state:paused; }
 }
 
 @keyframes marquee {
@@ -866,7 +866,8 @@ p  { line-height:1.75; color:var(--text-light); }
 }
 @media(max-width:768px){
   .section{padding:70px 0}
-  .hamburger{display:flex;position:relative;z-index:1001}
+  .container{padding:0 16px}
+  .hamburger{display:flex;position:relative;z-index:1001;padding:10px;margin:-10px}
   /* ── Centered logo on mobile ── */
   .navbar .container{position:relative}
   .nav-brand{position:absolute;left:50%;transform:translateX(-50%);z-index:1}
@@ -904,6 +905,12 @@ p  { line-height:1.75; color:var(--text-light); }
   .form-row{grid-template-columns:1fr}
   .con-form-wrap{padding:34px 22px}
   .footer-bottom-inner{flex-direction:column;text-align:center}
+  /* prevent iOS auto-zoom on input focus */
+  input,textarea,select{font-size:16px!important}
+  /* min touch targets */
+  .filter-btn{min-height:44px}
+  .float-btn{min-height:44px}
+  .btn{min-height:44px}
 }
 @media(max-width:480px){
   .stats-grid{grid-template-columns:1fr 1fr}
@@ -916,4 +923,15 @@ p  { line-height:1.75; color:var(--text-light); }
   .sfull-body{padding:14px 12px}
   .ab-badge{right:0;bottom:-15px}
   .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+}
+
+/* ── TOUCH DEVICE ACTIVE STATES ─────────────────────────── */
+@media(hover:none){
+  .btn:active{opacity:.82;transform:scale(.97)}
+  .btn-primary:active{background:var(--primary-dark)}
+  .filter-btn:active{background:var(--primary)!important;color:var(--white)!important;border-color:var(--primary)!important}
+  .nav-link:active{color:var(--primary)!important}
+  .float-btn:active{opacity:.82;transform:scale(.96)}
+  .srv-card:active,.sfull-card:active,.proj-card:active,.stat-card:active{box-shadow:var(--shadow)!important;transform:none!important}
+  .back-to-top:active{transform:scale(.94)}
 }
