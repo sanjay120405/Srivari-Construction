@@ -1301,7 +1301,12 @@ p  { line-height:1.75; color:var(--text-light); }
   .stat-card{padding:28px 10px}
   .stat-num{font-size:2rem}
   .team-grid,.equip-grid{grid-template-columns:1fr}
-  .testi-grid,.why-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .why-card{padding:14px 10px}
+  .why-icon{width:44px;height:44px;font-size:1.2rem;margin-bottom:10px}
+  .why-card h4{font-size:.85rem;margin-bottom:6px}
+  .why-card p{font-size:.78rem;line-height:1.6}
   .srv-grid,.sfull-grid,.proj-grid,.pfull-grid{gap:10px}
   .srv-card{padding:14px 10px}
   .srv-card h3{font-size:.88rem}
