@@ -657,22 +657,69 @@ p  { line-height:1.75; color:var(--text-light); }
 .team-info span { font-size:.82rem; color:var(--primary); font-weight:600; }
 
 /* Why Us */
-.why-us { padding:90px 0; background:var(--dark); }
-.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-.why-card {
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--radius-lg); padding:36px 28px; text-align:center; transition:var(--tr);
+.why-us {
+  padding: 90px 0;
+  background: var(--dark);
 }
-.why-card:hover { background:rgba(196,18,48,.14); border-color:rgba(196,18,48,.35); transform:translateY(-6px); }
-.why-icon {
-  width:68px; height:68px; background:rgba(196,18,48,.2); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.8rem; color:var(--primary); margin:0 auto 20px; transition:var(--tr);
-}
-.why-card:hover .why-icon { background:var(--primary); color:var(--white); }
-.why-card h4 { color:var(--white); font-size:1.02rem; margin-bottom:12px; }
-.why-card p  { font-size:.85rem; color:rgba(255,255,255,.52); line-height:1.72; }
 
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 top + 2 bottom */
+  gap: 28px;
+}
+
+.why-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  transition: var(--tr);
+}
+
+.why-card:hover {
+  background: rgba(196,18,48,.14);
+  border-color: rgba(196,18,48,.35);
+  transform: translateY(-6px);
+}
+
+.why-icon {
+  width: 68px;
+  height: 68px;
+  background: rgba(196,18,48,.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 0 auto 20px;
+  transition: var(--tr);
+}
+
+.why-card:hover .why-icon {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.why-card h4 {
+  color: var(--white);
+  font-size: 1.02rem;
+  margin-bottom: 12px;
+}
+
+.why-card p {
+  font-size: .85rem;
+  color: rgba(255,255,255,.52);
+  line-height: 1.72;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* ── SERVICES FULL PAGE ─────────────────────────────────── */
 .services-full { padding:90px 0; }
 .sfull-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:35px; }
