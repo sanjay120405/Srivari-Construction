@@ -748,6 +748,7 @@ p  { line-height:1.75; color:var(--text-light); }
 /* ── CONTACT PAGE ───────────────────────────────────────── */
 .contact-section { padding:90px 0; }
 .con-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:60px; align-items:start; }
+.con-grid-solo { grid-template-columns:1fr; max-width:680px; margin:0 auto; }
 .con-info {
   background:var(--dark); border-radius:var(--radius-lg); padding:50px 40px; color:var(--white);
 }
