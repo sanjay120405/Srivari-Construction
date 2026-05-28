@@ -903,6 +903,7 @@ p  { line-height:1.75; color:var(--text-light); }
   .equip-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr;gap:30px}
   .form-row{grid-template-columns:1fr}
+  .con-info{padding:36px 24px}
   .con-form-wrap{padding:34px 22px}
   .footer-bottom-inner{flex-direction:column;text-align:center}
   /* prevent iOS auto-zoom on input focus */
