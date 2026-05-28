@@ -1300,7 +1300,8 @@ p  { line-height:1.75; color:var(--text-light); }
   .stats-grid{grid-template-columns:1fr 1fr}
   .stat-card{padding:28px 10px}
   .stat-num{font-size:2rem}
-  .team-grid,.equip-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .equip-grid{grid-template-columns:1fr}
   .testi-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .why-card{padding:14px 10px}
