@@ -14,7 +14,7 @@
     .as-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
     .as-img{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3}
     .as-img-inner{width:100%;height:100%;}
-    .as-img-inner img{width:100%;height:100%;object-fit:cover;display:block;}
+    .as-img-inner img,.as-img-inner video{width:100%;height:100%;object-fit:cover;display:block;}
     .as-badge{
       position:absolute;bottom:-18px;right:-18px;
       background:var(--primary);color:var(--white);
@@ -132,7 +132,9 @@
   <div class="container">
     <div class="as-grid">
       <div class="as-img reveal-l">
-        <div class="as-img-inner"><img src="assets/srivari.jpg" alt="Srivari Constructions"></div>
+        <div class="as-img-inner">
+          <video src="assets/about.mp4" autoplay loop muted playsinline></video>
+        </div>
         <div class="as-badge">
         </div>
       </div>
