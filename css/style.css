@@ -891,8 +891,10 @@ p  { line-height:1.75; color:var(--text-light); }
   .stats-grid,.srv-grid,.sfull-grid,.proj-grid,.pfull-grid,.testi-grid,.why-grid{grid-template-columns:repeat(2,1fr);gap:14px}
   /* ── Compact cards for 2-col mobile ── */
   .srv-card{padding:20px 14px}
-  .srv-card h3{font-size:.95rem}
-  .srv-icon{width:52px;height:52px;font-size:1.5rem;margin-bottom:14px}
+  .srv-card h3{font-size:.95rem;margin-bottom:8px}
+  .srv-card p{font-size:.82rem;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .srv-icon{width:52px;height:52px;font-size:1.4rem;margin-bottom:12px}
+  .srv-link{font-size:.82rem}
   .sfull-body{padding:16px 14px}
   .sfull-body h3{font-size:.95rem}
   .testi-card{padding:20px 16px}
@@ -921,7 +923,10 @@ p  { line-height:1.75; color:var(--text-light); }
   .team-grid,.equip-grid{grid-template-columns:1fr}
   .testi-grid,.why-grid{grid-template-columns:1fr}
   .srv-grid,.sfull-grid,.proj-grid,.pfull-grid{gap:10px}
-  .srv-card{padding:16px 12px}
+  .srv-card{padding:14px 10px}
+  .srv-card h3{font-size:.88rem}
+  .srv-icon{width:44px;height:44px;font-size:1.2rem;margin-bottom:10px}
+  .srv-link{font-size:.78rem}
   .sfull-body{padding:14px 12px}
   .ab-badge{right:0;bottom:-15px}
   .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
