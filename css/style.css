@@ -859,7 +859,8 @@ p  { line-height:1.75; color:var(--text-light); }
   .equip-grid{grid-template-columns:repeat(2,1fr)}
   .ab-grid{grid-template-columns:1fr;gap:42px}
   .ab-img-wrap{max-width:480px;margin:0 auto}
-  .mv-grid{grid-template-columns:1fr}
+  .mv-grid{grid-template-columns:repeat(2,1fr)}
+  .mv-card{padding:30px 22px}
   .con-grid{grid-template-columns:1fr;gap:40px}
   .why-grid{grid-template-columns:repeat(2,1fr)}
 }
