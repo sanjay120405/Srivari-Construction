@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Srivari Constructions &#8211; List of equipments and machines owned and operated for construction projects.">
+  <title>Equipments | Srivari Constructions</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── Equipment list section ── */
+    .equip-list-section{padding:90px 0;background:var(--white)}
+
+    /* ── Summary bar ── */
+    .equip-summary{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+      background:rgba(196,18,48,.12);border-radius:var(--radius-lg);
+      overflow:hidden;margin-bottom:64px;
+    }
+    .esm-item{background:var(--white);padding:36px 24px;text-align:center}
+    .esm-num{font-family:var(--font-h);font-size:2.6rem;font-weight:900;color:var(--primary);line-height:1;margin-bottom:8px}
+    .esm-lbl{font-size:.8rem;color:var(--text-light);text-transform:uppercase;letter-spacing:.08em}
+
+    /* ── Equipment card grid ── */
+    .eq-list-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .eql-card{
+      display:flex;align-items:center;gap:22px;
+      background:var(--white);border:1px solid var(--border);
+      border-radius:var(--radius-lg);padding:26px 28px;
+      box-shadow:var(--shadow-sm);transition:var(--tr);
+    }
+    .eql-card:hover{border-color:var(--primary);box-shadow:var(--shadow-red);transform:translateY(-4px)}
+    .eql-icon{
+      width:62px;height:62px;border-radius:var(--radius);
+      background:rgba(196,18,48,.1);display:flex;align-items:center;justify-content:center;
+      font-size:1.55rem;color:var(--primary);flex-shrink:0;transition:var(--tr);
+    }
+    .eql-card:hover .eql-icon{background:var(--primary);color:var(--white)}
+    .eql-body{flex:1}
+    .eql-serial{font-size:.72rem;color:var(--text-muted);font-weight:600;letter-spacing:.08em;margin-bottom:5px}
+    .eql-name{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:10px;line-height:1.3}
+    .eql-qty{
+      display:inline-flex;align-items:center;gap:7px;
+      background:rgba(196,18,48,.07);color:var(--primary);
+      font-family:var(--font-h);font-weight:800;font-size:.92rem;
+      padding:5px 14px;border-radius:20px;
+    }
+    .eql-qty i{font-size:.78rem}
+
+    /* ── Table view (alternate for larger list) ── */
+    .equip-table-wrap{margin-top:64px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+    .equip-table{width:100%;border-collapse:collapse}
+    .equip-table thead tr{background:var(--dark)}
+    .equip-table th{padding:18px 28px;text-align:left;color:var(--white);font-family:var(--font-h);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .equip-table th:last-child{text-align:right}
+    .equip-table td{padding:18px 28px;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--text);vertical-align:middle}
+    .equip-table tbody tr:last-child td{border-bottom:none}
+    .equip-table tbody tr:hover td{background:var(--light)}
+    .equip-table .td-num{width:56px;color:var(--text-muted);font-weight:700;font-size:.85rem}
+    .equip-table .td-icon{width:52px}
+    .equip-table .td-icon-inner{
+      width:38px;height:38px;border-radius:var(--radius);
+      background:rgba(196,18,48,.1);display:flex;align-items:center;justify-content:center;
+      font-size:1rem;color:var(--primary);
+    }
+    .equip-table .td-name{font-family:var(--font-h);font-weight:700;color:var(--dark)}
+    .equip-table .td-qty{text-align:right}
+    .equip-table .td-qty span{
+      background:rgba(196,18,48,.07);color:var(--primary);
+      font-family:var(--font-h);font-weight:800;font-size:.95rem;
+      padding:5px 16px;border-radius:20px;white-space:nowrap;
+    }
+
+    @media(max-width:768px){
+      .equip-summary{grid-template-columns:repeat(3,1fr)}
+      .eq-list-grid{grid-template-columns:1fr 1fr;gap:12px}
+      .eql-card{padding:18px 14px;gap:12px;flex-direction:column;align-items:flex-start}
+      .eql-icon{width:48px;height:48px;font-size:1.2rem}
+      .eql-name{font-size:.9rem}
+      .equip-table-wrap{display:none}
+    }
+    @media(max-width:480px){
+      .equip-summary{grid-template-columns:repeat(3,1fr)}
+      .esm-item{padding:20px 8px}
+      .esm-num{font-size:1.8rem}
+      .esm-lbl{font-size:.62rem;letter-spacing:.04em}
+      .eq-list-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+      .eql-card{padding:14px 12px;flex-direction:column;align-items:flex-start}
+      .eql-icon{width:44px;height:44px;font-size:1.1rem}
+      .eql-name{font-size:.82rem}
+      .eql-qty{font-size:.78rem;padding:4px 10px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-inner" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="Srivari Constructions" class="nav-logo">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nav-link">Home</a></li>
+      <li><a href="about.html"      class="nav-link">About Us</a></li>
+      <li><a href="services.html"   class="nav-link">Services</a></li>
+      <li><a href="projects.html"   class="nav-link">Projects</a></li>
+      <li><a href="equipments.html" class="nav-link active">Equipments</a></li>
+      <li><a href="contact.html"    class="nav-link btn-nav">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <h1>Our Equipments</h1>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span class="cur">Equipments</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT LIST -->
+<section class="equip-list-section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag">Our Fleet</div>
+      <h2 class="section-title">List of <span>Equipments &amp; Machines</span></h2>
+      <p class="section-subtitle">Srivari Constructions owns and operates a well-maintained fleet of heavy machinery and equipment ensuring timely, quality execution on every project.</p>
+      <span class="divider"></span>
+    </div>
+
+    <!-- Summary Stats -->
+    <div class="equip-summary reveal">
+      <div class="esm-item">
+        <div class="esm-num">13</div>
+        <div class="esm-lbl">Equipment Types</div>
+      </div>
+      <div class="esm-item">
+        <div class="esm-num">85+</div>
+        <div class="esm-lbl">Total Units</div>
+      </div>
+      <div class="esm-item">
+        <div class="esm-num">100%</div>
+        <div class="esm-lbl">Owned Fleet</div>
+      </div>
+    </div>
+
+    <!-- Card Grid -->
+<div class="eq-list-grid">
+
+  <div class="eql-card reveal d1">
+    <div class="eql-icon"><i class="fas fa-truck-moving"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">01</div>
+      <div class="eql-name">Bharat Benz Tipper</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 9 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d2">
+    <div class="eql-icon"><i class="fas fa-tractor"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">02</div>
+      <div class="eql-name">JCB</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 3 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d3">
+    <div class="eql-icon"><i class="fas fa-truck-monster"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">03</div>
+      <div class="eql-name">TATA Hitachi</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 3 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d4">
+    <div class="eql-icon"><i class="fas fa-industry"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">04</div>
+      <div class="eql-name">RMC M1 Plant Full Set up</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 1 No</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d1">
+    <div class="eql-icon"><i class="fas fa-cog"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">05</div>
+      <div class="eql-name">Concrete Machine</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 20 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d2">
+    <div class="eql-icon"><i class="fas fa-layer-group"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">06</div>
+      <div class="eql-name">Centering Materials</div>
+      <span class="eql-qty"><i class="fas fa-ruler-combined"></i> 50,000 Sq.Ft.</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d3">
+    <div class="eql-icon"><i class="fas fa-bolt"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">07</div>
+      <div class="eql-name">Genset</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 10 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d4">
+    <div class="eql-icon"><i class="fas fa-water"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">08</div>
+      <div class="eql-name">Water Tanker</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 2 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d1">
+    <div class="eql-icon"><i class="fas fa-car-side"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">09</div>
+      <div class="eql-name">Mahindra Bolero</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 2 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d2">
+    <div class="eql-icon"><i class="fas fa-arrow-up"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">10</div>
+      <div class="eql-name">Hydraulic Lift</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 5 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d3">
+    <div class="eql-icon"><i class="fas fa-water"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">11</div>
+      <div class="eql-name">De-Watering Pump</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 10 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d4">
+    <div class="eql-icon"><i class="fas fa-wave-square"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">12</div>
+      <div class="eql-name">Vibrator</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 10 Nos</span>
+    </div>
+  </div>
+
+  <div class="eql-card reveal d1">
+    <div class="eql-icon"><i class="fas fa-hammer"></i></div>
+    <div class="eql-body">
+      <div class="eql-serial">13</div>
+      <div class="eql-name">Earth Rammer</div>
+      <span class="eql-qty"><i class="fas fa-hashtag"></i> 10 Nos</span>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Need Equipment for Your Project?</h2>
+    <p>Our fleet is available for deployment on your construction site. Get in touch to discuss requirements and availability.</p>
+    <div class="cta-btns">
+      <a href="contact.html"  class="btn btn-outline-white"><i class="fas fa-phone-alt"></i> Enquire Now</a>
+      <a href="projects.html" class="btn" style="background:var(--white);color:var(--primary);font-weight:700"><i class="fas fa-folder-open"></i> View Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/logo.png" alt="Srivari Constructions" class="footer-logo">
+          <p class="footer-about-text">Building dreams with precision and excellence since 1990. Trichy&#8217;s trusted construction partner for residential, commercial, and infrastructure projects.</p>
+          <div class="socials">
+            <a href="#" class="s-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="s-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="s-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="s-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="flinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="equipments.html">Equipments</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="flinks">
+            <li><a href="services.html">Building Construction</a></li>
+            <li><a href="services.html">Architectural Design</a></li>
+            <li><a href="services.html">Interior Design</a></li>
+            <li><a href="services.html">Elevation Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div>
+            <div class="fc-item"><i class="fas fa-map-marker-alt"></i><span>No. C21, 4th Cross North East, Thillai Nagar, Trichy - 620018.</span></div>
+            <div class="fc-item"><i class="fas fa-phone-alt"></i><span><a href="tel:+919003080565">+91 90030 80565</a></span></div>
+            <div class="fc-item"><i class="fas fa-envelope"></i><span><a href="mailto:srivariconstructions75@gmail.com">srivariconstructions75@gmail.com</a></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2024 Srivari Constructions. All Rights Reserved.</p>
+        <p>Designed with <span style="color:var(--primary)">&#9829;</span> for <a href="#">Srivari Constructions</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <a href="https://wa.me/919003080565" class="float-btn float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+  </a>
+  <a href="tel:+919003080565" class="float-btn float-call" aria-label="Call Now">
+    <i class="fas fa-phone-alt"></i><span>Call Now</span>
+  </a>
+</div>
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>
