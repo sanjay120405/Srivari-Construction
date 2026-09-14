@@ -750,6 +750,7 @@ p  { line-height:1.75; color:var(--text-light); }
 .footer { background:var(--dark-2); }
 .footer-top { padding:80px 0 50px; }
 .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.6fr; gap:50px; }
+.footer-grid > div:nth-child(4) { align-self:center; }
 .footer-logo { height:56px; width:auto; margin-bottom:20px; filter:brightness(0) invert(1); }
 .footer-about-text { font-size:.88rem; color:rgba(255,255,255,.48); line-height:1.78; margin-bottom:26px; }
 .socials { display:flex; gap:10px; }
