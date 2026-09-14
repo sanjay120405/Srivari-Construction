@@ -776,7 +776,7 @@ p  { line-height:1.75; color:var(--text-light); }
 .fc-item a { color:rgba(255,255,255,.48); }
 .fc-item a:hover { color:var(--primary); }
 .footer-bottom { background:var(--dark); padding:20px 0; }
-.footer-bottom-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.footer-bottom-inner { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; flex-wrap:wrap; gap:12px; }
 .footer-bottom p  { font-size:.82rem; color:rgba(255,255,255,.38); }
 .footer-bottom a  { color:var(--primary); }
 
